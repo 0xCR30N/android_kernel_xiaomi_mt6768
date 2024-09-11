@@ -639,7 +639,7 @@ s32 cmdq_pkt_append_command(struct cmdq_pkt *pkt, u16 arg_c, u16 arg_b,
 
 	if (unlikely(!pkt->avail_buf_size)) {
 		if (cmdq_pkt_add_cmd_buffer(pkt) < 0)
-			return NULL;
+			return -ENOMEM;
 	}
 
 	buf = list_last_entry(&pkt->buf, typeof(*buf), list_entry);
