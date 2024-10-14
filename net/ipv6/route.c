@@ -1422,7 +1422,10 @@ static void ip6_negative_advice(struct sock *sk,
 	struct rt6_info *rt = (struct rt6_info *) dst;
 
 	if (rt->rt6i_flags & RTF_CACHE) {
+<<<<<<< HEAD
 		rcu_read_lock();
+=======
+>>>>>>> v4.14.353-openela
 		if (rt6_check_expired(rt)) {
 			/* counteract the dst_release() in sk_dst_reset() */
 			dst_hold(dst);
@@ -1430,7 +1433,10 @@ static void ip6_negative_advice(struct sock *sk,
 
 			ip6_del_rt(rt);
 		}
+<<<<<<< HEAD
 		rcu_read_unlock();
+=======
+>>>>>>> v4.14.353-openela
 		return;
 	}
 	sk_dst_reset(sk);
